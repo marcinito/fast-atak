@@ -6,13 +6,20 @@ import {useSelector} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {actionCreator} from '../state/index'
 import Miasto from './Miasto'
+import Sklep from './Sklep'
 
+import {useNavigate,Routes,Route} from 'react-router-dom'
+import GameOver from './GameOver'
 function Home() {
+    const navigate=useNavigate()
     const index=useSelector(state=>state.index.index)
     const [dis,setDis]=useState(true)
     const [next,setNext]=useState(false)
     const rozmowaRef=useRef()
     const homeRef=useRef()
+    const logoRef=useRef()
+    const dialogRef=useRef()
+    const bottomRef=useRef()
 
     useEffect(()=>{
      
@@ -41,28 +48,33 @@ mowa()
     },[])
     const switchPage=()=>{
         homeRef.current.classList.add("homeactive")
-   setTimeout(()=>{
-setNext(true)
-   },3000)
+    
+      
+        setTimeout(()=>{
+           
+      
+            navigate('/create')
+        },3000)
+
     }
-    if(next===true){
-        return(
-            <Create/>
-        )
-    }
+
     return (
+        <div className="routes">
+  
         <div className="home" ref={homeRef}>
-              <div className="logo">
+      
+              <div className="logo" ref={logoRef}>
                   <h1 className="hjeden">StayAlive</h1>
                   <h1 className="hdwa">StayAlive</h1>
               </div>
-  <div className="dialog">
+  <div className="dialog" ref={dialogRef}>
       <div className="rozmowa" ref={rozmowaRef}></div>
       <img className="straznik" src={straznik} alt="straznik"/>
   </div>
-  <div className="bottom">
+  <div className="bottom" ref={bottomRef}>
       <button className="btnGraj" disabled={dis} onClick={()=>switchPage()}>graj</button>
   </div>
+        </div>
         </div>
     )
 }

@@ -7,13 +7,15 @@ import { bindActionCreators } from 'redux'
 import {actionCreator} from '../state/index'
 import drzewo from '../img/drzewo.png'
 import chmura from '../img/chmura.png'
+import {useNavigate,Routes,Route,Link} from 'react-router-dom'
 
 function Create() {
+    const navigate=useNavigate()
     const nazwaBohatera= useSelector((state)=>state.name.name)
     const wygladBohatera= useSelector((state)=>state.hero.hero)
     const dispatch=useDispatch()
     const [dis,setDis]=useState(true)
-    const [next,setNext]=useState(false)
+  
     const {name,setHero}=bindActionCreators(actionCreator,dispatch)
     const [postacie,setPostacie]=useState([{postac:wojownik},{postac:czarodziej}])
     let [index,setIndex]=useState(0)
@@ -42,16 +44,14 @@ useEffect(()=>{
 },[])
 
 
-    if(next===true){
-        return(
-            <Miasto/>
-        )
-    }
 
 
-    else{
+
+  
     return (
+        
         <div className="create">
+          
             <h1 className="create__h1">Ustaw parametry swojej postaci</h1>
         <div className="inputy">
             <label className="label">Podaj nazwe bohatera<br></br>
@@ -65,11 +65,11 @@ useEffect(()=>{
             <div className="switch">
                 <button onClick={()=>changeHero()}>next</button>
             </div>
-            <button className="btngraj2" disabled={dis} onClick={()=>setNext(true)}>graj</button>
+            <button className="btngraj2" disabled={dis} onClick={()=>navigate("/miasto")} >Graj</button>
             <img className="drzewo" src={drzewo} alt="drzewo"/>
             <img src={chmura} className="chmura" alt="chmura"/>
         </div>
     )
 }
-}
+
 export default Create

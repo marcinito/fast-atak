@@ -141,7 +141,21 @@
     height:90%;
 }
 
-
+.btnbp{
+    width:10%;
+    height:10%;
+    position:absolute;
+    transition:left 3s;
+}
+.btnbpActive{
+animation:bpActive 3s forwards;
+    
+    
+}
+@keyframes bpActive{
+    0%{transform:translateX(0%)}
+    100%{transform:translateX(900%)}
+}
 
 
 

@@ -1,5 +1,5 @@
 const zlotoState={
-    zloto:1000
+    zloto:100
 }
 const zlotoReducer=(state=zlotoState,action)=>{
     switch(action.type){

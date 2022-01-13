@@ -5,13 +5,15 @@ import {bindActionCreators} from 'redux'
 import hp from '../img/hppoint.png'
 import tasak from '../img/tasak.png'
 import { kupienieItemki } from '../state/action-creator/actionCreator'
-
+import {useNavigate} from 'react-router-dom'
 function Sklep(props) {
+  const navigate=useNavigate()
   const [dis,setDis]=useState(false)
   let [flag,setFlag]=useState(true)
   const dispatch=useDispatch()
     const koszykRef=useRef()
     const produktRef=useRef()
+    const defaultWeaponRef=useRef()
     const btnKupRef=useRef()
     const mocUderzeniaRef=useRef()
     const nazwaItemaRef=useRef()
@@ -19,6 +21,7 @@ function Sklep(props) {
     let cenaRef=useRef()
     let zaplataRef=useRef()
     let opisRef=useRef()
+    let iloczynRef=useRef()
  
     let rodzajzakupuRef=useRef()
   const {giveGold,purchase,kupienieItemki}=bindActionCreators(actionCreator,dispatch)
@@ -44,6 +47,7 @@ useEffect(()=>{
 
   const dodaj=(e)=>{
 rodzajzakupuRef.current=e.target.id
+iloczynRef.current=e.target.dataset.iloczyn
 zakupRef.current=e.target.src
 cenaRef.current=e.target.alt
 mocUderzeniaRef.current=e.target.dataset.hit
@@ -65,7 +69,7 @@ if(zloto>=cenaRef.current)
   
 
 
-  dispatch({type:koszykRef.current.alt,payload:koszykRef.current.src,payload2:mocUderzeniaRef.current,payload3:nazwaItemaRef.current,payload4:opisRef.current})
+  dispatch({type:koszykRef.current.alt,payload:koszykRef.current.src,payload2:mocUderzeniaRef.current,payload3:nazwaItemaRef.current,payload4:opisRef.current,payload5:iloczynRef.current})
   purchase(cenaRef.current)
   
 }
@@ -81,9 +85,9 @@ else{
         <div className="sklep">
           <div className="logoSklepu"><h1>Witaj w Sklepie</h1></div>
          <div className="polki">
-             <div onClick={(e)=>dodaj(e)} value={shop.hpPotion}  className="przedmiot jeden" ><img src={shop.hpPotion.name} alt={shop.hpPotion.koszt}  id="hpPotion" data-name={shop.hpPotion.nazwa} data-opis={shop.hpPotion.opis} /></div>
-             <div  className="przedmiot dwa" onClick={(e)=>dodaj(e)}><img src={shop.kulaognia.name} alt={shop.kulaognia.koszt} id="kulaognia" data-hit={shop.kulaognia.hit} data-name={shop.kulaognia.nazwa} data-opis={shop.kulaognia.opis}/></div>
-             <div  className="przedmiot trzy" onClick={(e)=>dodaj(e)} ><img src={shop.ogien.name} alt={shop.ogien.koszt} id="ogien" data-hit={shop.ogien.hit} data-name={shop.ogien.nazwa} data-opis={shop.ogien.opis} /></div>
+             <div onClick={(e)=>dodaj(e)} value={shop.hpPotion}  className="przedmiot jeden" ref={defaultWeaponRef} ><img src={shop.hpPotion.name} alt={shop.hpPotion.koszt}  id="hpPotion" data-name={shop.hpPotion.nazwa} data-opis={shop.hpPotion.opis} data-iloczyn={shop.hpPotion.iloczyn}/></div>
+             <div  className="przedmiot dwa" onClick={(e)=>dodaj(e)}><img src={shop.kulaognia.name} alt={shop.kulaognia.koszt} id="kulaognia" data-hit={shop.kulaognia.hit} data-name={shop.kulaognia.nazwa} data-opis={shop.kulaognia.opis} data-iloczyn={shop.kulaognia.iloczyn}/></div>
+             <div  className="przedmiot trzy" onClick={(e)=>dodaj(e)} ><img src={shop.ogien.name} alt={shop.ogien.koszt} id="ogien" data-hit={shop.ogien.hit} data-name={shop.ogien.nazwa} data-opis={shop.ogien.opis} data-iloczyn={shop.ogien.iloczyn} /></div>
              <div  className="przedmiot cztery"></div>
              <div className="przedmiot piec"></div>
              <div className="przedmiot szesc"></div>
@@ -94,10 +98,10 @@ else{
          </div>
         
          <button ref={btnKupRef} className="kupItem" disabled={dis} onClick={((e)=>kupItemke(e))}>kup</button>
-         <div className="koszyk"  ><div className="cena">{cenaRef.current}</div><img ref={koszykRef} src={zakupRef.current} alt={rodzajzakupuRef.current} data-hit={mocUderzeniaRef} data-name={nazwaItemaRef.current} data-opis={opisRef.current}/><div className="opisItemu">{nazwaItemaRef.current}</div></div>
+         <div className="koszyk"  ><div className="cena">{cenaRef.current}</div><img ref={koszykRef} src={zakupRef.current} alt={rodzajzakupuRef.current} data-hit={mocUderzeniaRef} data-name={nazwaItemaRef.current} data-opis={opisRef.current} data-iloczyn={iloczynRef.current}/><div className="opisItemu">{nazwaItemaRef.current}</div></div>
           <div className="twojeZloto"><div className="zaplata" ref={zaplataRef}><h1 style={{fontSize:"1.5rem"}}>Kwota po tranzakcji</h1></div>{zloto}</div>
      
-            <button className="btnExit" onClick={()=>props.headback(false)}>Powrót</button>
+            <button className="btnExit" onClick={()=>navigate('/miasto')}>Powrót</button>
         </div>
     )
 }

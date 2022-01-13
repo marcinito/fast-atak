@@ -6,6 +6,13 @@
   font-size: 10px;
 }
 
+.routesActive {
+  height: 100vh;
+  width: 100%;
+  max-width: 1000px;
+  border: 10px solid darkblue;
+}
+
 .home {
   border: 1px solid black;
   width: 90%;
@@ -474,6 +481,41 @@
   height: 90%;
 }
 
+.btnbp {
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  -webkit-transition: left 3s;
+  transition: left 3s;
+}
+
+.btnbpActive {
+  -webkit-animation: bpActive 3s forwards;
+          animation: bpActive 3s forwards;
+}
+
+@-webkit-keyframes bpActive {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(900%);
+            transform: translateX(900%);
+  }
+}
+
+@keyframes bpActive {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(900%);
+            transform: translateX(900%);
+  }
+}
+
 .miejsce1 {
   border: 1px solid darkblue;
   height: 100%;
@@ -575,6 +617,21 @@
   display: flex;
   display: flex;
   position: relative;
+}
+
+.arenaActive {
+  -webkit-transition: 5s;
+  transition: 5s;
+  width: 50%;
+  height: 40vh;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  -webkit-transform: rotate(120deg);
+          transform: rotate(120deg);
 }
 
 .playerFight {

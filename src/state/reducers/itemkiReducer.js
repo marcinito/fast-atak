@@ -4,7 +4,7 @@ import zloto from '../../img/zloto.png'
 import kulaognia from '../../img/kulaognia.png'
 
 const itemkiState={
-    hpPotion:{name:hpPotion,ilosc:1},
+    hpPotion:{name:hpPotion,ilosc:100},
     tasak:{name:tasak,hit:25},
     gold:zloto,
     kulaognia:{name:kulaognia,hit:40},

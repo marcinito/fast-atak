@@ -41,12 +41,13 @@ export const purchase=(gold)=>{
         })
     }
 }
-export const wearWeapon=(weapon,weapon2)=>{
+export const wearWeapon=(weapon,weapon2,iloczyn)=>{
     return (dispatch)=>{
         dispatch({
             type:"weapon",
             payload:weapon,
-            payload2:weapon2
+            payload2:weapon2,
+            payload3:iloczyn
         })
     }
 }
