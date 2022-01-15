@@ -408,11 +408,9 @@
   width: 33.33%;
   height: 100%;
   border: 1px solid black;
-  font-size: 2rem;
 }
 
 .gold span {
-  font-size: 2rem;
   color: gold;
 }
 
@@ -482,38 +480,19 @@
 }
 
 .btnbp {
-  width: 10%;
-  height: 10%;
+  width: 17%;
+  border-left-color: crimson;
+  border-right-color: crimson;
+  border-bottom-color: white;
+  border-top-color: white;
+  height: 5%;
   position: absolute;
-  -webkit-transition: left 3s;
-  transition: left 3s;
-}
-
-.btnbpActive {
-  -webkit-animation: bpActive 3s forwards;
-          animation: bpActive 3s forwards;
-}
-
-@-webkit-keyframes bpActive {
-  0% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-  }
-  100% {
-    -webkit-transform: translateX(900%);
-            transform: translateX(900%);
-  }
-}
-
-@keyframes bpActive {
-  0% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-  }
-  100% {
-    -webkit-transform: translateX(900%);
-            transform: translateX(900%);
-  }
+  z-index: 2;
+  font-size: 130%;
+  font-weight: bold;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 1px 1px crimson;
+          box-shadow: 1px 1px 1px 1px crimson;
 }
 
 .miejsce1 {
@@ -597,7 +576,7 @@
 
 .miejsce4 img {
   position: absolute;
-  width: 90%;
+  width: 60%;
 }
 
 .iloscFluidowCity {
@@ -606,8 +585,27 @@
   color: darkblue;
 }
 
+.sky1 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+}
+
+.sky2 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  left: 80%;
+}
+
+.sky3 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  left: 20%;
+}
+
 .arena {
-  border: 1px solid black;
   width: 90%;
   height: 100vh;
   margin: 0 auto;
@@ -636,9 +634,9 @@
 
 .playerFight {
   height: 100%;
-  border: 1px solid black;
   width: 50%;
   position: relative;
+  background-color: #ccccff;
 }
 
 .playerFightPos {
@@ -660,34 +658,61 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-perspective: 100px;
+          perspective: 100px;
+  background-color: #210309;
 }
 
 .postacOnArena {
   width: 100%;
   height: 70%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #00b3b3;
+  border-bottom: 5px solid blue;
+  border-top: 5px solid blue;
+}
+
+.postacOnArena:hover {
+  -webkit-transform: translateZ(2px);
+          transform: translateZ(2px);
+  -webkit-box-shadow: 5px 5px 5px 5px blue;
+          box-shadow: 5px 5px 5px 5px blue;
+  -webkit-filter: sepia(100%);
+          filter: sepia(100%);
 }
 
 .namePlayerFight {
   text-align: center;
   font-weight: bold;
-  color: darkblue;
+  color: yellow;
   font-size: 100%;
   position: relative;
   font-size: 2.5rem;
+  background-color: black;
 }
 
 .powrot {
   position: absolute;
   width: 5%;
   height: 3.5%;
-  font-size: 2rem;
-  -webkit-text-stroke: 1px white;
-  color: black;
+  font-size: 200%;
+  -webkit-text-stroke: 1px darkblue;
+  color: white;
   border: none;
   -webkit-box-shadow: 3px 3px 3px black;
           box-shadow: 3px 3px 3px black;
   -webkit-transform: translateX(-5px);
           transform: translateX(-5px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .eqFight {
@@ -714,7 +739,6 @@
 .fluidyFight {
   width: 100%;
   height: 50%;
-  border: 1px solid black;
   position: relative;
 }
 
@@ -728,15 +752,16 @@
   position: absolute;
   color: green;
   font-weight: bold;
-  left: 50%;
-  top: 50%;
+  left: 30%;
+  top: 125%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border: 3px solid green;
+  -webkit-box-shadow: 3px 3px  3px red;
+          box-shadow: 3px 3px  3px red;
 }
 
 .hp {
-  width: 80%;
   height: 3%;
   border: 1px solid black;
   position: relative;
@@ -744,7 +769,20 @@
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   top: 19%;
-  background-color: darkred;
+  background-color: red;
+  font-size: 200%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  -webkit-text-stroke: 1px cyan;
 }
 
 .atak {
@@ -752,14 +790,19 @@
   bottom: 5%;
   width: 50%;
   height: 5%;
+  border: 10px solid black;
+  background-color: #e6e600;
+  color: white;
+  font-size: 220%;
+  -webkit-text-stroke: 1px black;
 }
 
 /*MONSTER SETTINGS*/
 .monsterFight {
-  border: 1px solid black;
   width: 50%;
   height: 100%;
   position: relative;
+  background-color: #ebb0b0;
 }
 
 .monsterFightPos {
@@ -781,6 +824,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: hidden;
+  background-color: #1a1a1a;
 }
 
 .nameMonsterFight {
@@ -788,7 +833,8 @@
   color: darkorange;
   font-weight: bold;
   font-size: 2.5rem;
-  -webkit-text-stroke: 1px black;
+  -webkit-text-stroke: 1px white;
+  background-color: black;
 }
 
 .monsterOnArena {
@@ -824,13 +870,25 @@
 }
 
 .hpMonster {
-  height: 2%;
+  border: 1px solid black;
+  height: 3%;
   background-color: red;
   position: relative;
-  top: 18%;
+  top: 20%;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 200%;
+  -webkit-text-stroke: 1px cyan;
 }
 
 .uderzenie {
@@ -899,6 +957,17 @@
           transform: translate(-50%, 0);
   background-color: red;
   opacity: 0;
+  font-size: 50px;
+  color: orange;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .atakNaMonster {
@@ -1031,9 +1100,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-indent: 10%;
 }
 
@@ -1141,5 +1210,91 @@
   -webkit-text-stroke: 0px black;
   font-size: 2.5rem;
   font-weight: bold;
+}
+
+.gameover {
+  background-color: darkcyan;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.napisy {
+  width: 800px;
+  height: 800px;
+  overflow: hidden;
+}
+
+.content {
+  -webkit-animation: play 30s forwards linear;
+          animation: play 30s forwards linear;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.napisy h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #cc8400;
+  -webkit-text-stroke: 1px red;
+}
+
+p {
+  font-size: 4rem;
+  text-align: center;
+}
+
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  100% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+  }
+}
+
+@keyframes play {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  100% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+  }
+}
+
+.over {
+  font-size: 10rem;
+  font-weight: bold;
+  -webkit-text-stroke: 3px red;
+}
+
+.btnStartAgain {
+  width: 300px;
+  height: 80px;
+  border: none;
+  border-radius: 70px;
+  font-size: 300%;
+  -webkit-text-stroke: 1px darkblue;
+  color: yellow;
+  background-color: #ffb733;
 }
 /*# sourceMappingURL=style.css.map */

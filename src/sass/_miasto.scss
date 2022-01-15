@@ -81,10 +81,10 @@
     border:1px solid black;
 
     
-    font-size:2rem;
+   
 }
 .gold span{
-    font-size:2rem;
+    
     color:gold;
 }
 .gold img{
@@ -142,20 +142,21 @@
 }
 
 .btnbp{
-    width:10%;
-    height:10%;
+    width:17%;
+    border-left-color: crimson;
+    border-right-color: crimson;
+    border-bottom-color: white;
+    border-top-color: white;
+    height:5%;
     position:absolute;
-    transition:left 3s;
+    z-index:2;
+    font-size:130%;
+    font-weight: bold;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px crimson;
+
 }
-.btnbpActive{
-animation:bpActive 3s forwards;
-    
-    
-}
-@keyframes bpActive{
-    0%{transform:translateX(0%)}
-    100%{transform:translateX(900%)}
-}
+
 
 
 
@@ -213,10 +214,27 @@ animation:bpActive 3s forwards;
     }
     .miejsce4 img{
         position:absolute;
-        width:90%;
+        width:60%;
     }
     .iloscFluidowCity{
         font-size:2rem;
         font-weight:bold;
         color:darkblue;
+    }
+    .sky1{
+        width:20%;
+        height: 20%;
+        position:absolute;
+    }
+    .sky2{
+        width:20%;
+        height: 20%;
+        position:absolute;
+        left:80%
+    }
+    .sky3{
+        width:20%;
+        height: 20%;
+        position:absolute;
+        left:20%
     }

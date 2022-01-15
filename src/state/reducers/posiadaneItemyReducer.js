@@ -21,6 +21,8 @@ const wlasneItemkiReducer=(state=ownItems,action)=>{
                     return {...state,item3:{name:action.payload,hit:action.payload2,nazwa:action.payload3,opis:action.payload4,iloczyn:action.payload5}}
                     case "defaultItem":
                         return {...state,item1:{name:action.payload,hit:action.payload2,nazwa:action.payload3,opis:action.payload4,iloczyn:action.payload5}}
+                        case "axe":
+                            return {...state,item4:{name:action.payload,hit:action.payload2,nazwa:action.payload3,opis:action.payload4,iloczyn:action.payload5}}
                     default:
                 return state
     }

@@ -32,6 +32,7 @@ function Sklep(props) {
     console.log(wlasneItemki)
   
 useEffect(()=>{
+
   if(zloto-cenaRef.current<-1 ){
   setDis(true)
   btnKupRef.current.style.backgroundColor="red"
@@ -44,6 +45,9 @@ useEffect(()=>{
   }
 
 })
+
+
+
 
   const dodaj=(e)=>{
 rodzajzakupuRef.current=e.target.id
@@ -88,11 +92,11 @@ else{
              <div onClick={(e)=>dodaj(e)} value={shop.hpPotion}  className="przedmiot jeden" ref={defaultWeaponRef} ><img src={shop.hpPotion.name} alt={shop.hpPotion.koszt}  id="hpPotion" data-name={shop.hpPotion.nazwa} data-opis={shop.hpPotion.opis} data-iloczyn={shop.hpPotion.iloczyn}/></div>
              <div  className="przedmiot dwa" onClick={(e)=>dodaj(e)}><img src={shop.kulaognia.name} alt={shop.kulaognia.koszt} id="kulaognia" data-hit={shop.kulaognia.hit} data-name={shop.kulaognia.nazwa} data-opis={shop.kulaognia.opis} data-iloczyn={shop.kulaognia.iloczyn}/></div>
              <div  className="przedmiot trzy" onClick={(e)=>dodaj(e)} ><img src={shop.ogien.name} alt={shop.ogien.koszt} id="ogien" data-hit={shop.ogien.hit} data-name={shop.ogien.nazwa} data-opis={shop.ogien.opis} data-iloczyn={shop.ogien.iloczyn} /></div>
-             <div  className="przedmiot cztery"></div>
+             <div  className="przedmiot cztery" onClick={(e)=>dodaj(e)}> <img src={shop.siekiera.name} alt={shop.siekiera.koszt} id="axe" data-hit={shop.siekiera.hit} data-name={shop.siekiera.nazwa} data-opis={shop.siekiera.opis} data-iloczyn={shop.siekiera.iloczyn}/></div>
              <div className="przedmiot piec"></div>
              <div className="przedmiot szesc"></div>
              <div className="lada" ref={opisRef} >
-               {opisRef.current}
+               {opisRef.current===undefined?"Witaj w sklepie znajdziesz tutaj przeróżny asortyment! Bądz rozważny w zakupach, nie którzy przypłacili życiem podejmujac nie rozważne decyzje":opisRef.current}
                
              </div>
          </div>

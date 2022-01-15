@@ -41,6 +41,14 @@ export const purchase=(gold)=>{
         })
     }
 }
+export const zeruj=(gold)=>{
+    return (dispatch)=>{
+        dispatch({
+            type:"zeruj",
+            payload:gold
+        })
+    }
+}
 export const wearWeapon=(weapon,weapon2,iloczyn)=>{
     return (dispatch)=>{
         dispatch({

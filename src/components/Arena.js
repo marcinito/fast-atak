@@ -7,6 +7,12 @@ import Miasto from './Miasto'
 import defeat from '../img/padl.png'
 import zloto from '../img/zloto.png'
 import GameOver from './GameOver'
+import Dragon from '../img/Dragon_Lord.gif'
+import Hydra from '../img/Hydra.gif'
+import Vampire from '../img/Vampire.gif'
+import Weeper from '../img/Weeper.gif'
+import drag2 from '../img/tibia-drag.gif'
+
 
 import {useSelector,useDispatch} from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -22,11 +28,13 @@ function Arena(props) {
   const [klik,setKlik]=useState(false)
   const dispatch=useDispatch()
   const {setIndex,giveGold,wearWeapon,computeHp}=bindActionCreators(actionCreator,dispatch)
-    const [monsters,setMonsters]=useState([{name:"wilk",hp:110,hit:25,outfit:wilk,gold:100},{name:"Gracz",hp:190,hit:50,outfit:gracz,gold:150},{name:"Mroczny Wilk",hp:50,hit:90,outfit:wilk,gold:200},{name:"Starszy Brat",hp:319,hit:110,outfit:gracz,gold:250},{name:"Starszy Brat",hp:409,hit:140,outfit:bandit,gold:300},{name:"Heavy Fist",hp:100,hit:200,outfit:gracz,gold:300}])
+    const [monsters,setMonsters]=useState([{name:"Vampire",hp:110,hit:150,outfit:gracz,gold:100},{name:"Bandit",hp:190,hit:50,outfit:gracz,gold:150},{name:"Hydra",hp:50,hit:90,outfit:Hydra,gold:200},{name:"Dragon",hp:319,hit:110,outfit:drag2,gold:250},{name:"Lord Dragon",hp:409,hit:140,outfit:Dragon,gold:300},{name:"Weeper",hp:100,hit:200,outfit:Weeper,gold:300}])
   
 
     const [dis,setDis]=useState(false)
+    const [button,setButton]=useState(false)
     let [target,setTarget]=useState(monsters[index])
+    let [initial,setInitial]=useState(monsters[index].hp)
     // let [playerHp,setPlayerHp]=useState(hpGracza)
 
   
@@ -45,6 +53,8 @@ function Arena(props) {
    const wybranaBronRef=useRef()
    const atakMonsterRef=useRef()
    const monsterOnArenaRef=useRef()
+   const playerFightAreaRef=useRef()
+   const monsterFightAreaRef=useRef()
    let hitOdMonster=useRef()
    let atakNaMonsterRef=useRef()
    let uderzenieNaMonsterRef=useRef()
@@ -63,12 +73,12 @@ function Arena(props) {
       setTimeout(()=>{
         setIndex()
         giveGold(target.gold)
-   
+   console.log("teraz")
        
     doneRef.current.classList.add("doneActive")
 
 
-      },1000) 
+      },10) 
  
 
 
@@ -78,17 +88,20 @@ function Arena(props) {
 
 const leczenie =()=>{
    itemki.hpPotion.ilosc>0 ? dispatch({type:"ile"}):console.log("Nie masz wystarczajace ilosc potionow")
-  
+  setKlik(!klik)
+
 }
 console.log(noszonaBron)
 /*Atak Atak Atak Atak Atak Atak Atak Atak Atak Atak*/
 useEffect(()=>{
+ 
     hpplayerRef.current.style.width=hpGracza +"px"
     hpmonsterRef.current.style.width=target.hp +"px"
 },[])
 const atak=()=>{
     // hpplayerRef.current.style.width=hpGracza +"px"
-    hpmonsterRef.current.style.width=target.hp +"px"
+    
+
    
     hitOdMonster.current=Math.floor(Math.random()*target.hit)
     atakNaMonsterRef.current=noszonaBron.hit+Math.floor(Math.random()*noszonaBron.iloczyn+1)
@@ -141,6 +154,7 @@ useEffect(()=>{
 
   
     hpplayerRef.current.style.width=hpGracza +"px"
+    hpmonsterRef.current.style.width=target.hp + "px"
 
    
 },[target,hpGracza])
@@ -165,14 +179,35 @@ navigate('/gameover')
     }
     
 },[hpGracza])
+useEffect(()=>{
+  
+    if(target.hp<initial){
+        setButton(true)
 
+    }
+    console.log(typeof playerFightAreaRef.current.clientWidth)
+    console.log(typeof hpGracza)
+    console.log(hpplayerRef.current)
+})
+useEffect(()=>{
+    if(hpGracza>playerFightAreaRef.current.clientWidth-100){
+        hpplayerRef.current.style.width=playerFightAreaRef.current.clientWidth-100 +"px"
+       
+    }
+ if(target.hp>monsterFightAreaRef.current.clientWidth-100){
+  
+        hpmonsterRef.current.style.width=monsterFightAreaRef.current.clientWidth-100 +"px"
+    }
+    console.log(`width${monsterFightAreaRef.current.clientWidth}`)
+    console.log(`width${playerFightAreaRef.current.clientWidth}`)
+})
 
     return (
         <div className="arena" ref={arenaRef}>
             <img ref={wybranaBronRef} className="wybranaBron" src={null} alt="wybranaBron"/>
             <img ref={atakMonsterRef} className="atakMonster"src={null} alt="wybranaBron"/>
-            <div className="playerFight">
-                <div className="hp" ref={hpplayerRef} style={{color:"white",fontSize:"10px",textAlign:"center"}}>{hpGracza}</div>
+            <div className="playerFight" ref={playerFightAreaRef}>
+                <div className="hp" ref={hpplayerRef} >{hpGracza}</div>
                 <div className="eqFight">
                 <div className="bronFight"><img src={noszonaBron.bron} alt="weapon"/></div>
                 <div className="fluidyFight" ref={iloscMiksturRef} onClick={()=>leczenie()}><p className="liczbaFluidowArena">{itemki.hpPotion.ilosc}</p><img src={itemki.hpPotion.name} alt="fluidy"/></div>
@@ -185,25 +220,25 @@ navigate('/gameover')
                     <img className="postacOnArena" ref={postacOnArenaRef} src={hero} alt="player"/>
                 </div>
             </div>
-            <div className="monsterFight">
-            <div className="hpMonster" ref={hpmonsterRef} style={{fontSize:"15px",color:"white"}}>{target.hp}</div>
+            <div className="monsterFight" ref={monsterFightAreaRef}>
+            <div className="hpMonster" ref={hpmonsterRef} >{target.hp}</div>
             <div className="monsterFightPos">
                
-                <div className="getHitFromPlayer" ref={uderzenieNaMonsterRef} style={{fontSize:"50px",color:"orange"}}></div>
+                <div className="getHitFromPlayer" ref={uderzenieNaMonsterRef} ></div>
                 <div className="nameMonsterFight">{monsters[index].name}</div>
                 <img ref={monsterOnArenaRef} className="monsterOnArena" src={monsters[index].outfit} alt="wilk"/>
                
             </div>
             </div>
 
-            <button className="powrot" onClick={()=>navigate("/miasto")}>Powrot</button>
+            <button className="powrot" disabled={button} onClick={()=>navigate("/miasto")}>Powrot</button>
             <button disabled={dis} className="atak" onClick={()=>atak()}>Atak</button>
           
            <div className="done" ref={doneRef}>
                <h1>Udało Ci się pokonać Bestia,Congratulation!</h1>
                <em>Twój łup z Besti to <span>{target.gold}</span></em><br></br>
                <img src={zloto} alt="zloto"/>
-               <button className="powrotPoWygranej" onClick={()=>navigate("/miasto")}>Wróć do miasta</button></div>
+               <button className="powrotPoWygranej"  onClick={()=>navigate("/miasto")}>Wróć do miasta</button></div>
         
         </div>
     )
