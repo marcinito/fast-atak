@@ -1,0 +1,17 @@
+$breakpoints : (
+    first:(min-width:359px),
+    second:(min-width:509px),
+    third:(min-width:759px),
+    four:(min-width:859px),
+);
+@mixin media($breakpoint){
+    $size:map-get($breakpoints,$breakpoint);
+    @if($size){
+        @media #{$size}{
+            @content;
+        }
+    }
+  @else{
+      @error 'error'
+  }
+}

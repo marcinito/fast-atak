@@ -22,7 +22,7 @@ function App() {
                 <Route path="/gameover" element={<GameOver/>}></Route>
                 <Route path="/" element={<Home/>}></Route>
             </Routes>
-            <p>siema</p>
+            
     </div>
   );
 }

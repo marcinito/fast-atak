@@ -4,10 +4,10 @@
     box-sizing: border-box;
     font-size:10px;
 }
-
+@import './sass/variables';
 @import './sass/_home';
-@import './sass//_create';
-@import './sass/miasto';
-@import './sass/arena';
-@import './sass//sklep';
-@import './sass/gameover'
+@import './sass/_create';
+@import './sass/_miasto';
+@import './sass/_arena';
+@import './sass/sklep';
+@import './sass/_gameover';

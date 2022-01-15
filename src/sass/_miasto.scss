@@ -1,240 +1,173 @@
-.miasto{
-    border:1px solid black;
-    width:90%;
-    height:100vh; 
-    max-width:1100px;
-    margin:0 auto;
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    flex-direction: column;
- 
-}
-.sky{
-    width:100%;
-    height:20%;
-    border:1px solid black;
-    background-color: skyblue;
-    
-}
-.polozenieMiasta{
-    display:flex;
-    flex-grow:1;
-    border:5px solid darkblue;
-    
-}
-.posBohater{
-    border:1px solid black;
-    display:flex;
-    justify-content: center;
-    
-  
-}
-.imgBohater{
-    position:relative;
-    
-}
-.nick{
-    text-align:center;
-    font-size:2.5rem;
-}
-.leftSide{
-    border:5px solid plum;
-   flex-grow:1;
-    height:100%;
-}
-.bohater{
-    border:15px solid green;
-    width:33.33%;
-    height:100%;
-    position: relative;
-    display:flex;
-    flex-direction: column;
-    flex-grow:.3;
-}
-.rightSide{
-    border:5px solid red;
-  flex-grow:1;
-    height:100%;
-}
-.rightSide button{
-    width:100%;
-    flex-grow:1;
-    height:100%;
-    background-color: lighten(blue,10%);
-    font-size:20px;
-}
-.ground{
-    height:10%;
-    width:100%;
-    background-color: darken(brown,10%);
-}
-.armor{
-    height:18%;
-    width:100%;
-    border:10px solid red;
-    display:flex;
-}
-.gold{
-    width:33.33%;
-    height:100%;
-    border:1px solid black;
-
-    
-   
-}
-.gold span{
-    
-    color:gold;
-}
-.gold img{
-    width:90%;
-    height:60%;
-}
-.noszonaBron{
-    width:33.33%;
-    height:100%;
-    border:1px solid black;
-   
-   
-  
-    
-}
-.noszonaBron img{
-    width:80%;
-    height:80%;
-   
-}
-.noszoneFluidy{
-    width:33.33%;
-    height:100%;
-    border:1px solid black;
-    display:flex;
-    overflow:hidden;
-    justify-content: center;
-    flex-direction:column
-}
-.noszoneFluidy img{
-    width:90%;
-    height:80%;
-}
-.backpack{
-    margin-top:5%;
-    width:100%;
-    height:20%;
-    border:5px solid orange;
-}
-.zamknietyBp{
-    transition:3s;
-    width:100%;
-    border:1px solid black;
-    height:100%;
-    display:flex;
-    width:0%;
-    height:90%;
-
-    
-}
-.otwartyPlecak{
-    transition:3s linear;
-    width:100%;
-    height:90%;
-}
-
-.btnbp{
-    width:17%;
-    border-left-color: crimson;
-    border-right-color: crimson;
-    border-bottom-color: white;
-    border-top-color: white;
-    height:5%;
-    position:absolute;
-    z-index:2;
-    font-size:130%;
-    font-weight: bold;
-    background-color: white;
-    box-shadow: 1px 1px 1px 1px crimson;
-
-}
-
-
-
-
-.miejsce1{
-    border:1px solid darkblue;
-    height:100%;
-    width:25%;
-    position: relative;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    }
-    .miejsce1 img{
-        width:60%;
-        position:absolute;
-
-
+@include media(first){
+    .miasto{
+        height:100vh;
         
+        width:100%;
     }
-    .miejsce2{
-        border:1px solid darkblue;
-        height:100%;
-        width:25%;
-        position: relative;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-
-    }
-    .miejsce2 img{
-        position:absolute;
-        width:90%;
-    }
-    .miejsce3{
-        border:1px solid darkblue;
-        height:100%;
-        width:25%;
-        position: relative;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .miejsce3 img{
-        position:absolute;
-        width:90%;
-    }
-    .miejsce4{
-        border:1px solid darkblue;
-        height:100%;
-        width:25%;
-        position: relative;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .miejsce4 img{
-        position:absolute;
-        width:60%;
-    }
-    .iloscFluidowCity{
-        font-size:2rem;
-        font-weight:bold;
-        color:darkblue;
+    .sky{
+        height:15%;
+        width:100%;
+        background-color: skyblue;
     }
     .sky1{
         width:20%;
-        height: 20%;
         position:absolute;
+        animation:chmura1 20s infinite forwards alternate-reverse;
     }
     .sky2{
         width:20%;
-        height: 20%;
         position:absolute;
-        left:80%
+        animation:chmura2 20s 4s infinite forwards alternate-reverse;
+        overflow:hidden;
     }
-    .sky3{
-        width:20%;
-        height: 20%;
+    @keyframes chmura1{
+        0%{transform:translate(0%)}
+        100%{transform:translate(500%)}
+    }
+    @keyframes chmura2{
+        0%{transform:translate(0%,50%)}
+        100%{transform:translate(400%,10%)}
+    }
+    .palac{
+        width:40%;
+       
+        position:relative;
+        top:-17%;
+    }
+    .polozenieMiasta{
+        height:100%;
+        display:flex;
+        flex-direction: column;
+
+    }
+    .leftSide{
+order:2;
+    }
+    .bohater{
+
+    }
+    .nick{
+border:1px solid black;
+display:flex;
+justify-content: center;
+align-items: center;
+font-size:2rem;
+font-weight:bold;
+-webkit-text-stroke:1px darkgreen;
+color:blue;
+letter-spacing: 4px;
+width:60%;
+margin:0 auto;
+border-radius:50%;
+background-color: orange;
+
+    }
+    .posBohater{
+width:100%;
+display:flex;
+justify-content: center;
+border-bottom:2px double darkblue;
+    }
+    .imgBohater{
+width:36%;
+
+    }
+    .armor{
+display:flex;
+border-bottom:1px solid darkblue;
+
+    }
+    .gold{
+width:33%;
+font-size:2rem;
+text-align:center;
+font-weight: bold;
+-webkit-text-stroke:1px red;
+background-color: lighten(skyblue,20%);
+    }
+    
+    .gold img{
+        width:100%;
+        height:90%;
+    }
+    .noszonaBron{
+        -webkit-text-stroke:1px orange;
+        width:33%;
+        font-size:1.9rem;
+        border-left:1px solid darkblue;
+        text-align: center;
+        background-color: lighten(gray,20%);
+    }
+    .noszonaBron img{
+        width:100%;
+        height:68%;
+       
+    }
+ 
+    .noszoneFluidy{
+        font-size:1.9rem;
+        border-left:1px solid darkblue;
+        text-align: center;
+        -webkit-text-stroke:1px green;
+     
+width:33%;
+border-left:1px solid darkblue;
+    }
+    .noszoneFluidy img{
+        width:70%;
+        height:80%;
+    }
+    .backpack{
+        border:1px solid green;
+        height:10%;
+    }
+    .btnbp{
         position:absolute;
-        left:20%
+        height:5%;
+        width:16%;
+        font-size:1.3rem;
+        color:darkgreen;
+        z-index:1;
+    
+    
+     
     }
+    .zamknietyBp{
+        width: 0%;
+        height:100%;
+        display:flex;
+       opacity:0;
+       margin-bottom:15%;
+
+    }
+    .otwartyPlecak{
+width:100%;
+opacity:1;
+height:100%;
+
+    }
+    .miejsce1{width:25%;border:1px solid black;height:100%;}
+    .miejsce1 img{width:25%; position:absolute;}
+    .miejsce2{width:25%;border:1px solid black;height:100%;}
+    .miejsce3{width:25%;border:1px solid black;height:100%;}
+    .miejsce4{width:25%;border:1px solid black;height:100%;}
+    
+}
+.leftSide{
+    
+    height:20%;
+}
+.leftSideButton{
+    width:100%;
+    height:100%;
+    background-color: darken(crimson,7%);
+}
+.rightSide{
+width:100%;
+height:20%;
+}
+.rightSideButton{
+    width:100%;
+    height:100%;
+    background-color: lighten(orange,7%);
+}

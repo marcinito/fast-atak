@@ -4,6 +4,7 @@ import { actionCreator } from '../state/index'
 import { bindActionCreators } from 'redux'
 import empty from '../img/empty.png'
 import chmura from '../img/chmura.png'
+import palac from '../img/palac.png'
 
 import Arena from './Arena'
 import tasak from '../img/tasak.png'
@@ -75,19 +76,21 @@ const wezdowalki=(e)=>{
             <div className="sky">
                 <img className="sky1" src={chmura} alt="chmura"/>
                 <img className="sky2" src={chmura} alt="chmura"/>
+                <img className="palac" src={palac} alt="chmura"/>
                
             </div>
             <div className="polozenieMiasta">
-            <div className="leftSide"><button onClick={()=>navigate('/arena')} style={{width:"100%",height:"100%"}}>Arena</button></div>
+            <div className="leftSide"><button onClick={()=>navigate('/arena')}className="leftSideButton">Arena</button></div>
             <div className="bohater">
             <div ><h3 className="nick">{nameBohater}</h3></div> 
                 <div className="posBohater">
                   
                 <img className="imgBohater" src={imgBohater} alt="bohater"/>
                 </div>
-                <div className="armor"> <div className="gold"><span>{zloto}</span><img src={itemki.gold} alt="gold"/></div>
-                <div className="noszonaBron"><span><img src={noszonaBron.bron} alt="aktualnaItema"/></span></div>
-                <div className="noszoneFluidy" ref={iloscMiksturRef} onClick={()=>leczenie()}><p className="iloscFluidowCity">ILOSC FLUIDOW {itemki.hpPotion.ilosc}</p><img src={itemki.hpPotion.name} alt="hp"/></div></div>
+                <div className="armor"> 
+                <div className="gold">{zloto}<img src={itemki.gold} alt="gold"/></div>
+                <div className="noszonaBron">WEAPON<img src={noszonaBron.bron} alt="aktualnaItema"/></div>
+                <div className="noszoneFluidy" ref={iloscMiksturRef} onClick={()=>leczenie()}>FLUIDY<img src={itemki.hpPotion.name} alt="hp"/></div></div>
        <div className="backpack" >
            <button className="btnbp"  onClick={()=>openBp()} >backpack</button>
            <div className="zamknietyBp" ref={backpackRef} >
@@ -101,7 +104,7 @@ const wezdowalki=(e)=>{
               
             </div>
 
-            <div className="rightSide"><button onClick={()=>navigate('/sklep')}>Sklep</button></div>
+            <div className="rightSide"><button onClick={()=>navigate('/sklep')} className="rightSideButton">Sklep</button></div>
             </div>
             <div className="ground"></div>
         </div>
