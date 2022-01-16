@@ -99,7 +99,7 @@
     width: 50%;
     height: 90%;
     position: relative;
-    bottom: 70%;
+    top: -50%;
     left: 55%;
   }
   .bottom {
