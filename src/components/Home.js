@@ -35,12 +35,13 @@ const mowa=()=>{
             textIndex++
             rozmowaRef.current.textContent=""
             if(textIndex===mowaStraznika.length){
+                rozmowaRef.current.textContent="Muahahahha"
                 setDis(false)
                 return
             }
             mowa()
 
-        },1)
+        },10)
     }
     setTimeout(mowa,1)
 }
