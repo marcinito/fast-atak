@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/klikklik/static/css/main.47d62614.css",
+    "main.js": "/klikklik/static/js/main.004e7780.js",
+    "static/media/zloto.png": "/klikklik/static/media/zloto.6e7ded47d42d2cff8ba5.png",
+    "static/media/las.jpg": "/klikklik/static/media/las.810d0b21a7a58fb32700.jpg",
+    "static/media/drzewo.png": "/klikklik/static/media/drzewo.00d81a1f666853b8e995.png",
+    "static/media/Vampire.gif": "/klikklik/static/media/Vampire.6385410ea643881e80c3.gif",
+    "static/media/straznik.png": "/klikklik/static/media/straznik.4db8379489e5edc956f8.png",
+    "static/media/Hydra.gif": "/klikklik/static/media/Hydra.4e88c9971c2ac2fd108c.gif",
+    "static/media/palac.png": "/klikklik/static/media/palac.5a3d5c5941e597da7dbf.png",
+    "static/media/Dragon_Lord.gif": "/klikklik/static/media/Dragon_Lord.65bc38da458421e3b95a.gif",
+    "static/media/tibia-drag.gif": "/klikklik/static/media/tibia-drag.bae7c537601f37826b53.gif",
+    "static/media/ogien.png": "/klikklik/static/media/ogien.1db4f68b3459e1b5aca9.png",
+    "static/media/chmura.png": "/klikklik/static/media/chmura.d39de79cf3158b63ffaa.png",
+    "static/media/tasak.png": "/klikklik/static/media/tasak.eddfd40117eb29c0b9c6.png",
+    "static/media/logo.jpg": "/klikklik/static/media/logo.2a79c6e7e99416f5ec56.jpg",
+    "static/media/wojownik.png": "/klikklik/static/media/wojownik.c1bc2fbd9b585229805d.png",
+    "static/media/Bandit.gif": "/klikklik/static/media/Bandit.4d9b1700f4efb10fe5d9.gif",
+    "static/media/kulaognia.png": "/klikklik/static/media/kulaognia.fa26e777019a131a4031.png",
+    "static/media/wilk.png": "/klikklik/static/media/wilk.970866bef3dda7dc383b.png",
+    "static/media/siekiera.png": "/klikklik/static/media/siekiera.39f03e5310f047276f3f.png",
+    "static/media/graczgra.png": "/klikklik/static/media/graczgra.afbec4a3274fdac60e17.png",
+    "static/media/czarodziej.png": "/klikklik/static/media/czarodziej.b17e73a4c014cf7b0181.png",
+    "static/media/Weeper.gif": "/klikklik/static/media/Weeper.71e3329652e3f24d7125.gif",
+    "static/media/piorun.png": "/klikklik/static/media/piorun.397bb9dd8de428306880.png",
+    "static/media/hppoint.png": "/klikklik/static/media/hppoint.e72aadf09771ab456454.png",
+    "index.html": "/klikklik/index.html",
+    "main.47d62614.css.map": "/klikklik/static/css/main.47d62614.css.map",
+    "main.004e7780.js.map": "/klikklik/static/js/main.004e7780.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47d62614.css",
+    "static/js/main.004e7780.js"
+  ]
+}
